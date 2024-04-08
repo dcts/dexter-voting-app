@@ -1,0 +1,52 @@
+{
+  "name": "dexter-voting",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -- -p 3781",
+    "build": "next build",
+    "start": "next start -- -p 3781",
+    "lint": "next lint",
+    "prettier": "npx prettier --write ."
+  },
+  "dependencies": {
+    "18": "0.0.0",
+    "@headlessui/react": "^1.7.15",
+    "@heroicons/react": "^2.0.18",
+    "@tanstack/react-table": "^8.9.3",
+    "@types/react": "18.2.15",
+    "@types/react-dom": "18.2.7",
+    "autoprefixer": "10.4.14",
+    "axios": "^1.4.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "eslint": "8.45.0",
+    "eslint-config-next": "13.4.10",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "jquery": "^3.7.0",
+    "js-cookie": "^3.0.5",
+    "mysql2": "^3.5.2",
+    "next": "13.4.10",
+    "next-connect": "^1.0.0",
+    "node-cache": "^5.1.2",
+    "notiflix": "^3.2.6",
+    "postcss": "8.4.26",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-hot-toast": "^2.4.1",
+    "sharp": "^0.32.4",
+    "tailwindcss": "3.3.3",
+    "toastr": "^2.1.4",
+    "typescript": "5.1.6",
+    "web-push-notifications": "^3.33.0",
+    "ws": "^8.13.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.4",
+    "@types/cookie": "^0.5.1",
+    "@types/node": "^20.4.2",
+    "prettier": "^3.0.0"
+  }
+}
