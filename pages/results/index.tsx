@@ -65,10 +65,15 @@ const Results: React.FC<ResultsProps> = ({
     (a, b) => b.points_sum - a.points_sum,
   );
 
-  const totalTokensAllocated = contributors.reduce(
-    (sum, contributor) => sum + (contributor.tokensAllocated || 0),
-    0,
-  );
+  const phase22orLater = phaseId && phaseId >= 22;
+  // For all contributor allocations starting at phase 22, reduce contributor total rewards from 95 to 65k DEXTR.
+  const contributorAllocationFix = phase22orLater ? 65 / 95 : 1;
+  const totalTokensAllocated =
+    contributors.reduce(
+      (sum, contributor) => sum + (contributor.tokensAllocated || 0),
+      0,
+    ) * contributorAllocationFix; // fix contributor token allocation
+
   const formattedTotalTokensAllocated = totalTokensAllocated.toLocaleString();
 
   const wsUri = 'wss://dexternominations.space';
@@ -293,10 +298,12 @@ const Results: React.FC<ResultsProps> = ({
                   <td className="whitespace-nowrap px-6 py-4 text-right">
                     <span className="text-sm md:text-base font-normal">
                       {' '}
-                      {Number(contributor.tokensAllocated).toLocaleString(
-                        undefined,
-                        { minimumFractionDigits: 2, maximumFractionDigits: 2 },
-                      )}{' '}
+                      {Number(
+                        contributor.tokensAllocated * contributorAllocationFix,
+                      ).toLocaleString(undefined, {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2,
+                      })}{' '}
                     </span>
                     <span className="text-sm"> DEXTR</span>{' '}
                   </td>
