@@ -326,42 +326,30 @@ const Results: React.FC<ResultsProps> = ({
                   </span>
                 </th>
               </tr>
-              {phase22orLater && (
-                <>
-                  <tr>
-                    <th></th>
-                    <th>
-                      <span className="font-lexend font-normal text-sm md:text-base  md:mr-5">
-                        Liquidity Incentives:
-                      </span>
-                    </th>
-                    <th className="px-6 py-2 text-sm md:text-base font-normal md:font-semibold">
-                      {' '}
-                      20,000{' '}
-                      <span className="text-sm md:text-base font-normal">
+              {phase22orLater &&
+                [
+                  ['Liquidity Incentives', '20,000'],
+                  ['Validator Node Stakers', '10,000'],
+                ].map(([title, allocation], indx) => {
+                  return (
+                    <tr key={indx}>
+                      <th></th>
+                      <th>
+                        <span className="font-lexend font-normal text-sm md:text-base  md:mr-5">
+                          {title}:
+                        </span>
+                      </th>
+                      <th className="px-6 py-2 text-sm md:text-base font-normal md:font-semibold">
                         {' '}
-                        DEXTR
-                      </span>{' '}
-                    </th>
-                  </tr>
-                  <tr>
-                    <th></th>
-                    <th>
-                      <span className="font-lexend font-normal text-sm md:text-base  md:mr-5">
-                        Validator Node Stakers:
-                      </span>
-                    </th>
-                    <th className="px-6 py-2 text-sm md:text-base font-normal md:font-semibold">
-                      {' '}
-                      10,000{' '}
-                      <span className="text-sm md:text-base font-normal">
-                        {' '}
-                        DEXTR
-                      </span>{' '}
-                    </th>
-                  </tr>
-                </>
-              )}
+                        {allocation}{' '}
+                        <span className="text-sm md:text-base font-normal">
+                          {' '}
+                          DEXTR
+                        </span>{' '}
+                      </th>
+                    </tr>
+                  );
+                })}
               <tr>
                 <th></th>
                 <th>
