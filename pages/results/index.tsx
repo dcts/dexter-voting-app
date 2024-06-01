@@ -67,7 +67,7 @@ const Results: React.FC<ResultsProps> = ({
 
   const phase22orLater = phaseId && phaseId >= 22;
   // For all contributor allocations starting at phase 22, reduce contributor total rewards from 95 to 65k DEXTR.
-  const contributorAllocationFix = phase22orLater ? 65 / 95 : 1;
+  const contributorAllocationFix = phase22orLater ? 45 / 95 : 1;
   const totalTokensAllocated =
     contributors.reduce(
       (sum, contributor) => sum + (contributor.tokensAllocated || 0),
@@ -328,8 +328,8 @@ const Results: React.FC<ResultsProps> = ({
               </tr>
               {phase22orLater &&
                 [
-                  ['Liquidity Incentives', '20,000'],
-                  ['Validator Node Stakers', '10,000'],
+                  ['Liquidity Incentives', '30,000'],
+                  ['Validator Node Stakers', '25,000'],
                 ].map(([title, allocation], indx) => {
                   return (
                     <tr key={indx}>
@@ -350,22 +350,6 @@ const Results: React.FC<ResultsProps> = ({
                     </tr>
                   );
                 })}
-              <tr>
-                <th></th>
-                <th>
-                  <span className="font-lexend font-normal text-sm md:text-base  md:mr-5">
-                    Reserve Allocation:
-                  </span>
-                </th>
-                <th className="px-6 py-2 text-sm md:text-base font-normal md:font-semibold">
-                  {' '}
-                  5,000{' '}
-                  <span className="text-sm md:text-base font-normal">
-                    {' '}
-                    DEXTR
-                  </span>{' '}
-                </th>
-              </tr>
               <tr>
                 <th></th>
                 <th>
@@ -393,7 +377,7 @@ const Results: React.FC<ResultsProps> = ({
             {' '}
             <button
               type="button"
-              className="font-lexend font-semibold bg-transparent hover:bg-black text-black font-semibold hover:text-white py-2 px-4 border-2 border-black hover:border-transparent"
+              className="font-lexend font-semibold bg-transparent hover:bg-black text-black hover:text-white py-2 px-4 border-2 border-black hover:border-transparent"
             >
               See Previous Results
             </button>{' '}
